@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
-import image1 from "../assets/images/apon.jpg";
+import image1 from "../assets/images/Aps.png";
 
 const Hero = () => {
   return (

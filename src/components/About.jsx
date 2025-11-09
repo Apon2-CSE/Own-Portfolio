@@ -65,17 +65,25 @@ const About = () => {
           >
             <h3 className="text-2xl font-bold mb-4">Who I Am</h3>
             <p className="text-muted-foreground mb-6">
-              I'm a Frontend developer with over 2 years of experience building
-              web applications and digital products. My journey in tech began
-              with a curiosity about how things work on the web, which led me to
-              pursue a degree in Computer Science.
+              I am a passionate MERN Stack Developer with hands-on experience in
+              building responsive and dynamic web applications using MongoDB,
+              Express.js, React, and Node.js. I enjoy creating clean, efficient,
+              and scalable code, and I am always eager to learn new technologies
+              to improve user experiences.
             </p>
             <p className="text-muted-foreground mb-6">
-              I specialize in creating responsive, accessible, and performant
-              web applications using modern technologies. My approach combines
-              technical expertise with a deep understanding of user needs to
-              deliver solutions that not only work flawlessly but also provide
-              exceptional user experiences.
+              With a strong understanding of both frontend and backend
+              development, I focus on delivering full-stack solutions that are
+              not only functional but also visually appealing. I thrive in
+              collaborative environments and enjoy solving complex problems,
+              optimizing performance, and implementing best practices in web
+              development.
+            </p>
+            <p className="text-muted-foreground mb-6">
+              When I’m not coding, I explore emerging web technologies,
+              contribute to open-source projects, and continuously enhance my
+              skills in JavaScript, React Hooks, REST APIs, and modern
+              development workflows.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">

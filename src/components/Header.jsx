@@ -94,7 +94,7 @@ const Header = ({ scrollY }) => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <a href="/resume.pdf" download>
+              <a href="/Apon.pdf" download>
                 <Button className="bg-cyan-600 hover:bg-cyan-700 text-white transform hover:scale-105 transition-transform">
                   <Download className="mr-2 h-4 w-4" /> Resume
                 </Button>

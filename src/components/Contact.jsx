@@ -1,37 +1,36 @@
-
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import emailjs from 'emailjs-com';
-
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      formData,
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    )
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
       .then(() => {
         setIsSubmitting(false);
         toast({
@@ -39,10 +38,10 @@ const Contact = () => {
           description: "Thank you for your message. I'll get back to you soon.",
         });
         setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
         });
       })
       .catch(() => {
@@ -50,7 +49,7 @@ const Contact = () => {
         toast({
           title: "Error",
           description: "Failed to send message. Please try again.",
-          variant: "destructive"
+          variant: "destructive",
         });
       });
   };
@@ -58,26 +57,26 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <Mail className="h-5 w-5" />,
-      title: 'Email',
-      value: 'hossennull@gmail.com',
-      link: 'mailto:hossennull@gmail.com'
+      title: "Email",
+      value: "apontalukder212@gmail.com",
+      link: "mailto:apontalukder212@gmail.com",
     },
     {
       icon: <Phone className="h-5 w-5" />,
-      title: 'Phone',
-      value: '01871-853590',
-      link: 'tel:01871853590'
+      title: "Phone",
+      value: "01828331394",
+      link: "tel:01828331394",
     },
     {
       icon: <MapPin className="h-5 w-5" />,
-      title: 'Location',
-      value: 'Bahaddarhat,Chattagram',
-      link: '#'
-    }
+      title: "Location",
+      value: "Purba bakalia 18 no Word.Chittagong",
+      link: "#",
+    },
   ];
 
   return (
-    <section id="contact" className="section-padding">
+    <section id="contact" className="section-padding bg-black text-white">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -86,14 +85,18 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-3 py-1 text-sm font-medium text-blue-700 bg-blue-100 rounded-full mb-4">
+          <span className="inline-block px-3 py-1 text-sm font-medium bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mb-4 text-white">
             Get In Touch
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Let's <span className="gradient-text">Connect</span>
+            Let's{" "}
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              Connect
+            </span>
           </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground">
-            Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
+          <p className="max-w-2xl mx-auto text-white/70">
+            Have a project in mind or want to discuss potential opportunities?
+            I'd love to hear from you!
           </p>
         </motion.div>
 
@@ -116,14 +119,14 @@ const Contact = () => {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="flex items-start"
                 >
-                  <div className="p-3 rounded-md gradient-bg text-white mr-4">
+                  <div className="p-3 rounded-md bg-gradient-to-r from-cyan-400 to-blue-500 text-white mr-4">
                     {info.icon}
                   </div>
                   <div>
                     <h4 className="font-medium text-lg">{info.title}</h4>
                     <a
                       href={info.link}
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="text-white/70 hover:text-cyan-400 transition-colors"
                     >
                       {info.value}
                     </a>
@@ -132,21 +135,105 @@ const Contact = () => {
               ))}
             </div>
 
-            <div className="p-6 bg-secondary/50 rounded-xl border max-w-sm shadow-md">
-              <h4 className="font-bold mb-4">Follow Me</h4>
-              <div className="flex gap-4">
-                <a href="https://www.facebook.com/saikat.veer" className="p-2 bg-white rounded-full shadow-sm hover:shadow-md transition-shadow">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                </a>
-                <a href="https://github.com/Auntim" className="p-2 bg-white rounded-full shadow-sm hover:shadow-md transition-shadow">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-400"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
-                </a>
-                <a href="https://www.instagram.com/saikot_07/" className="p-2 bg-white rounded-full shadow-sm hover:shadow-md transition-shadow">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-pink-600"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/auntim-hossen-saikat/" className="p-2 bg-white rounded-full shadow-sm hover:shadow-md transition-shadow">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-700"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </a>
+            <div className="p-6 bg-white/10 rounded-xl border max-w-sm shadow-md">
+              <div className="p-6 bg-white/10 rounded-xl border max-w-sm shadow-md">
+                <h4 className="font-bold mb-4">Follow Me</h4>
+                <div className="flex gap-4">
+                  {/* Facebook */}
+                  <a
+                    href="https://www.facebook.com/ayongos.dopial"
+                    target="_blank"
+                    className="p-2 rounded-full shadow-sm hover:shadow-md transition-shadow bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                  </a>
+
+                  {/* GitHub */}
+                  <a
+                    href="https://github.com/Apon2-CSE"
+                    target="_blank"
+                    className="p-2 rounded-full shadow-sm hover:shadow-md transition-shadow bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                    </svg>
+                  </a>
+
+                  {/* Instagram */}
+                  <a
+                    href="https://www.instagram.com/phpapon212/"
+                    target="_blank"
+                    className="p-2 rounded-full shadow-sm hover:shadow-md transition-shadow bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect
+                        width="20"
+                        height="20"
+                        x="2"
+                        y="2"
+                        rx="5"
+                        ry="5"
+                      ></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                    </svg>
+                  </a>
+
+                  {/* LinkedIn */}
+                  <a
+                    href="https://www.linkedin.com/in/apon-talukder-570332337/"
+                    target="_blank"
+                    className="p-2 rounded-full shadow-sm hover:shadow-md transition-shadow bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                      <rect width="4" height="12" x="2" y="9"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -157,13 +244,16 @@ const Contact = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-card rounded-xl p-6 shadow-md border">
+            <div className="bg-white/10 rounded-xl p-6 shadow-md border">
               <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-1">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-1"
+                    >
                       Your Name
                     </label>
                     <input
@@ -173,12 +263,15 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                      className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white bg-black/30 placeholder-white/50"
                       placeholder="Enter Your Name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-1"
+                    >
                       Your Email
                     </label>
                     <input
@@ -188,14 +281,17 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                      className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white bg-black/30 placeholder-white/50"
                       placeholder="abc@gmail.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-1">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium mb-1"
+                  >
                     Subject
                   </label>
                   <input
@@ -205,13 +301,16 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white bg-black/30 placeholder-white/50"
                     placeholder="Project Inquiry"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-1">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium mb-1"
+                  >
                     Message
                   </label>
                   <textarea
@@ -221,21 +320,37 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows="5"
-                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white bg-black/30 placeholder-white/50"
                     placeholder="Hello, I'd like to discuss a project..."
                   ></textarea>
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full gradient-bg"
+                  className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
                     <span className="flex items-center">
-                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      <svg
+                        className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
                       </svg>
                       Sending...
                     </span>
