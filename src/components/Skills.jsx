@@ -4,9 +4,9 @@ import { Code, Layout, Database, Server, Figma, LineChart } from "lucide-react";
 
 const skillsCategories = [
   {
-    icon: <Code className="h-6 w-6" />,
-    title: "Frontend Development",
-    skills: ["HTML/CSS", "JavaScript", "React", "Tailwind CSS", "Next.js"],
+    icon: <Database className="h-6 w-6" />,
+    title: "Database Management",
+    skills: ["MongoDB", "Firebase", "Git"],
   },
   {
     icon: <Server className="h-6 w-6" />,
@@ -14,14 +14,14 @@ const skillsCategories = [
     skills: ["Node.js", "Express", "RESTful APIs", "Authentication"],
   },
   {
-    icon: <Database className="h-6 w-6" />,
-    title: "Database Management",
-    skills: ["MongoDB", "Firebase", "Git"],
-  },
-  {
     icon: <Layout className="h-6 w-6" />,
     title: "UI/UX Design",
     skills: ["User Research", "Design Systems", "User Testing"],
+  },
+  {
+    icon: <LineChart className="h-6 w-6" />,
+    title: "Other Skills",
+    skills: ["Project Management", "Analytics", "Technical Writing"],
   },
   {
     icon: <Figma className="h-6 w-6" />,
@@ -29,9 +29,9 @@ const skillsCategories = [
     skills: ["Figma", "Photoshop", "Illustrator"],
   },
   {
-    icon: <LineChart className="h-6 w-6" />,
-    title: "Other Skills",
-    skills: ["Project Management", "Analytics", "Technical Writing"],
+    icon: <Code className="h-6 w-6" />,
+    title: "Frontend Development",
+    skills: ["HTML/CSS", "JavaScript", "React", "Tailwind CSS", "Next.js"],
   },
 ];
 

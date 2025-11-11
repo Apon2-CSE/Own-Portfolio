@@ -84,8 +84,33 @@ const projectsData = [
 
     image: "https://i.ibb.co.com/3YVD5Vv2/Screenshot-260.png",
     technologies: ["React", "Daisy UI", "Tailwind CSS", "Express JS"],
-    liveLink: "https://pet-adoption-f71aa.web.app/",
-    githubLink: "https://github.com/Auntim/pet-adoption-A12-client",
+    liveLink: "https://hero-app-by-apon212.netlify.app/",
+    githubLink: "https://github.com/Apon2-CSE/Ass-08.git",
+  },
+  {
+    id: 10,
+    title: "Kids Zone",
+
+    image: "https://i.ibb.co.com/bMPrwFfr/Screenshot-277.png",
+    technologies: [
+      "React",
+      "Daisy UI",
+      "Tailwind CSS",
+      "Express JS",
+      "Firebase",
+    ],
+    liveLink: " https://kids-zone-ph212.netlify.app/",
+    githubLink:
+      "https://github.com/programming-hero-web-course2/b12-a9-firesheild-Apon2-CSE.git",
+  },
+  {
+    id: 10,
+    title: "Ticket System",
+
+    image: "https://i.ibb.co.com/F9vm2ZS/Screenshot-278.png",
+    technologies: ["React", "Daisy UI", "Tailwind CSS", "Express JS"],
+    liveLink: " ",
+    githubLink: "https://github.com/Apon2-CSE/PH-ASS-7.git",
   },
 ];
 

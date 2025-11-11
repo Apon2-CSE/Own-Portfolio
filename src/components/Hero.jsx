@@ -25,7 +25,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="inline-block px-4 py-1.5 mb-4 text-sm font-medium rounded-full bg-cyan-100 text-cyan-700"
             >
-              Frontend Developer
+              MERN Stack Developer
             </motion.span>
 
             <motion.h1

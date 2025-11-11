@@ -16,10 +16,12 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="md:col-span-1"
           >
-            <h3 className="text-2xl font-bold gradient-text mb-2">
+            <h3 className="text-2xl font-bold  gradient-text mb-2">
               Apon Talukder
             </h3>
-            <p className="text-sm text-muted-foreground">Frontend Developer</p>
+            <p className="text-sm text-muted-foreground">
+              MERN Stack Developer
+            </p>
           </motion.div>
 
           <motion.nav
